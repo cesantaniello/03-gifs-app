@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SideMenuHeader } from "../../components/side-menu-header/side-menu-header";
+import { SideMenu } from "../../components/side-menu/side-menu";
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [RouterOutlet, SideMenuHeader],
+  imports: [RouterOutlet, SideMenu],
   standalone: true,
   templateUrl: './dashboard-page.html',
 })
