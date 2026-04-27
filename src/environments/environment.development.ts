@@ -3,4 +3,6 @@ export const environment = {
   companyName: 'Your Company Name',
   companyName2: 'Your Company Name 2',
   companySlogan: 'Your Company Slogan',
+
+  giphyApiKey: 'yTvcibyMqtvbQrjPsPC1biNMneHIUVD1',
 };
