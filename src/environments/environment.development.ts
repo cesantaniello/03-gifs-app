@@ -5,4 +5,5 @@ export const environment = {
   companySlogan: 'Your Company Slogan',
 
   giphyApiKey: 'yTvcibyMqtvbQrjPsPC1biNMneHIUVD1',
+  giphyUrl: 'https://api.giphy.com/v1/',
 };
