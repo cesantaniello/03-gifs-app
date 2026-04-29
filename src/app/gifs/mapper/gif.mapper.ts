@@ -9,7 +9,7 @@ export class GifMapper {
     };
   }
 
-
-    static mapGiphyItemToGifArray(items: any): Gif {
-      return items.map((item: any) => this.mapGiphyItemToGif);
-}}
+  static mapGiphyItemToGifArray(items: any): Gif[] {
+    return items.map((item: any) => GifMapper.mapGiphyItemToGif(item));
+  }
+}

@@ -17,20 +17,18 @@ export class GifsService {
     console.log('Servicio creado');
   }
 
-  loadTrendingGifs() {
-    return this.http
-      .get<GiphyResponse>(`${environment.giphyUrl}/gifs/trending`, {
-        params: {
-          api_key: environment.giphyApiKey,
-          limit: 20,
-        },
-      })
-      .subscribe((response) => {
-        const mapped = GifMapper.mapGiphyItemToGifArray(response.data);
-        const gifs: Gif[] = Array.isArray(mapped) ? mapped : [mapped];
-        this.trendingGifs.set(gifs);
-        this.trendingGifsLoading.set(false);
-        console.log({ gifs });
-      });
-  }
+loadTrendingGifs() {
+  return this.http
+    .get<GiphyResponse>(`${environment.giphyUrl}gifs/trending`, {  // ← sin la / inicial
+      params: {
+        api_key: environment.giphyApiKey,
+        limit: 20,
+      },
+    })
+    .subscribe((response) => {
+      const gifs: Gif[] = GifMapper.mapGiphyItemToGifArray(response.data);
+      this.trendingGifs.set(gifs);
+      this.trendingGifsLoading.set(false);
+    });
+}
 }
