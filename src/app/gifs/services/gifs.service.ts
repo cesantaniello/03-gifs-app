@@ -6,7 +6,7 @@ import { Gif } from '../interfaces/gif.interface';
 import { GifMapper } from '../mapper/gif.mapper';
 
 @Injectable({ providedIn: 'root' })
-export class GifsService {
+export class GifService {
   private http = inject(HttpClient);
 
   trendingGifs = signal<Gif[]>([]);
@@ -31,4 +31,17 @@ loadTrendingGifs() {
       this.trendingGifsLoading.set(false);
     });
 }
+  searchGifs(query: string) {
+      return this.http
+    .get<GiphyResponse>(`${environment.giphyUrl}gifs/search`, {  // ← sin la / inicial
+      params: {
+        api_key: environment.giphyApiKey,
+        limit: 20,
+        q: query,
+      },
+    })
+    .subscribe((response) => {
+      const gifs = GifMapper.mapGiphyItemToGifArray(response.data);
+    });
+  }
 }
