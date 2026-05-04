@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { GifList } from "../../components/gif-list/gif-list";
-import { GifsService } from '../../services/gifs.service';
+import { GifService } from '../../services/gifs.service';
 
 @Component({
   selector: 'app-trending-page',
@@ -8,6 +8,6 @@ import { GifsService } from '../../services/gifs.service';
   templateUrl: './trending-page.html',
 })
 export default class TrendingPage {
-  gifService = inject(GifsService);
+  gifService = inject(GifService);
   gifs = this.gifService.trendingGifs;  // ← usa el signal del servicio
 }
