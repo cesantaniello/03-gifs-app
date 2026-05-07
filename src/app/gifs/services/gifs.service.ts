@@ -12,7 +12,7 @@ const GIF_KEY = 'gifs';
 const loadFromLocalStorage = () => {
   const gifsFromLocalStorage = localStorage.getItem(GIF_KEY) ?? '{}';
   const gifs = JSON.parse(gifsFromLocalStorage);
-  console.log(gifs);
+
   return gifs;
 }
 
@@ -30,7 +30,6 @@ export class GifService {
       groups.push(this.trendingGifs().slice(i, i + 3));
     }
 
-    console.log(groups);
     return groups;
   });
 
